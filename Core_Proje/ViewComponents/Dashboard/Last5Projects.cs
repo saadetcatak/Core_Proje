@@ -1,0 +1,18 @@
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+
+namespace Core_Proje.ViewComponents.Dashboard
+{
+    public class Last5Projects:ViewComponent
+    {
+
+        PortfolioManager portfolioManager = new PortfolioManager(new EfPortfolioDal());
+        public IViewComponentResult Invoke()
+        {
+            var values = portfolioManager.TGetList().TakeLast(5).ToList();
+            return View(values);
+        }
+    }
+}

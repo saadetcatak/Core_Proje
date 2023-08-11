@@ -1,7 +1,7 @@
 ﻿@model EntityLayer.Concrete.Portfolio
 @{
     ViewData["Title"] = "AddPortfolio";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
 
@@ -14,16 +14,19 @@
     <br />
     @Html.Label("Proje Başlığı")
     @Html.TextBoxFor(x=>x.Name, new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Name)
     <br />
     <label>Görsel 1</label>
-    @Html.TextAreaFor(x=>x.ImageUrl,10,3, new {@class="form-control"})
+    @Html.TextBoxFor(x=>x.ImageUrl , new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.ImageUrl)
     <br />
     <br />
     <label>Görsel 2</label>
-    @Html.TextAreaFor(x=>x.Image2Url, new {@class="form-control"})
+    @Html.TextBoxFor(x=>x.Image2Url, new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Image2Url)
     <br />
     <label>Proje URL</label>
-    @Html.TextAreaFor(x=>x.ProjectUrl, new {@class="form-control"})
+    @Html.TextBoxFor(x=>x.ProjectUrl, new {@class="form-control"})
     <br />
     <button class="btn btn-outline-success">Kaydet</button>
 }

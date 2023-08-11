@@ -1,0 +1,47 @@
+﻿@model List<EntityLayer.Concrete.Service>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+    int count = 0;
+}
+
+
+<div class="card-header border-0">
+    <div class="card-header bg-transparent border-0">
+        <h3 class="text-white mb-0">Hizmetler</h3>
+    </div>
+</div>
+<!-- Light table -->
+<div class="table-responsive">
+                <table class="table align-items-center table-dark table-flush">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" class="sort" data-sort="name">Başlık</th>
+                            <th scope="col">Sil</th>
+                            <th scope="col">Düzenle</th>
+                        </tr>
+                    </thead>
+        <tbody class="list">
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>
+                        @count
+                    </td>
+
+                    <td class="budget">
+                        @item.Title
+                    </td>
+
+                    <td><a href="/Service/DeleteService/@item.ServiceID" class="btn btn-outline-danger">Sil</a></td>
+                    <td><a href="/Service/UpdateService/@item.ServiceID" class="btn btn-outline-success">Güncelle</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <a href="/Service/AddService/" class="btn btn-outline-info">Yeni Hizmet Ekleme</a>
+</div>
+
